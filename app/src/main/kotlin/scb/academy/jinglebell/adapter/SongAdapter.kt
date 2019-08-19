@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import scb.academy.jinglebell.R
 import scb.academy.jinglebell.extension.setImageUrl
 import scb.academy.jinglebell.model.Song
+import scb.academy.jinglebell.model.SongSearchResult
 
 class SongAdapter(private val listener: OnSongClickListener)
     : RecyclerView.Adapter<SongItemViewHolder>() {

@@ -4,11 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.item_song.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -30,12 +32,13 @@ class SongListFragment : Fragment(), OnSongClickListener {
     }
 
     private val songListCallback = object : Callback<SongSearchResult> {
-        override fun onFailure(call: Call<SongSearchResult>, t: Throwable) {
-            context?.showToast("Can not call country list $t")
+        override fun onResponse(call: Call<SongSearchResult>, response: Response<SongSearchResult>) {
+            val songs = response.body() ?: return
+            songAdapter.submitList(songs.results)
         }
 
-        override fun onResponse(call: Call<SongSearchResult>, response: Response<SongSearchResult>) {
-            context?.showToast("Success")
+        override fun onFailure(call: Call<SongSearchResult>, t: Throwable) {
+            context?.showToast("Can not call country list $t")
         }
     }
 
