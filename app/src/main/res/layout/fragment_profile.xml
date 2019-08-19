@@ -16,6 +16,7 @@
             android:id="@+id/nameEditText"
             android:layout_marginTop="20dp"
             android:hint="John Sick (John)"
+            android:imeOptions="actionDone"
             android:lines="1"
             android:gravity="center"
             android:layout_centerHorizontal="true"

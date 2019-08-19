@@ -53,6 +53,7 @@ class SongListFragment : Fragment(), OnSongClickListener {
         rvSongs.layoutManager = LinearLayoutManager(context)
         rvSongs.itemAnimator = DefaultItemAnimator()
         rvSongs.addItemDecoration(DividerItemDecoration(context, LinearLayoutManager.VERTICAL))
+        rvSongs.addItemDecoration(DividerItemDecoration(context, LinearLayoutManager.HORIZONTAL))
 
         loadSongs()
     }
